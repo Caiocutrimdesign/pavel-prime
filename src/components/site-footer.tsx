@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12 mb-16">
           <div className="md:col-span-5">
-            <img src={logo} alt="Pavel Implementos Rodoviários" className="h-10 w-auto brightness-0 invert mb-6" />
+            <img src={logo} alt="Pavel Implementos Rodoviários" className="h-10 w-auto mb-6" />
             <p className="text-sm text-steel leading-relaxed max-w-sm">
               Desde 1994 movendo as grandes operações do Norte e Nordeste com
               implementos rodoviários, peças e assistência técnica especializada

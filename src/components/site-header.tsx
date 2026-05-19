@@ -60,7 +60,7 @@ export function SiteHeader() {
       >
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-8">
           <Link to="/" className="flex items-center gap-3 shrink-0">
-            <img src={logo} alt="Pavel Implementos Rodoviários" className="h-9 w-auto brightness-0 invert" />
+            <img src={logo} alt="Pavel Implementos Rodoviários" className="h-9 w-auto" />
           </Link>
 
           <div className="hidden lg:flex items-center gap-8 text-[12px] font-semibold uppercase tracking-[0.18em]">
