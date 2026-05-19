@@ -9,41 +9,48 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
+    <>
+      <SiteHeader />
+      <main className="flex min-h-screen items-center justify-center bg-industrial px-4 pt-32">
+        <div className="max-w-md text-center">
+          <p className="font-display text-[140px] font-black leading-none text-rust">404</p>
+          <h2 className="mt-2 font-display text-2xl font-bold uppercase tracking-tight text-ice">
+            Página não encontrada
+          </h2>
+          <p className="mt-3 text-sm text-steel">
+            O endereço acessado não existe ou foi movido para outra rota.
+          </p>
+          <div className="mt-8">
+            <Link
+              to="/"
+              className="inline-flex items-center justify-center bg-rust px-6 h-12 text-[11px] font-bold uppercase tracking-[0.25em] text-ice hover:bg-rust/90 transition-colors"
+            >
+              Voltar ao início
+            </Link>
+          </div>
         </div>
-      </div>
-    </div>
+      </main>
+      <SiteFooter />
+    </>
   );
 }
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-industrial px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+        <h1 className="font-display text-2xl font-bold uppercase text-ice">
+          Esta página não carregou
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+        <p className="mt-2 text-sm text-steel">
+          Algo deu errado. Tente novamente ou volte ao início.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -51,15 +58,15 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center bg-rust px-5 h-11 text-[11px] font-bold uppercase tracking-[0.25em] text-ice hover:bg-rust/90 transition-colors"
           >
-            Try again
+            Tentar novamente
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center justify-center border border-ice/20 bg-transparent px-5 h-11 text-[11px] font-bold uppercase tracking-[0.25em] text-ice hover:bg-ice/5 transition-colors"
           >
-            Go home
+            Início
           </a>
         </div>
       </div>
@@ -72,19 +79,39 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Pavel Implementos Rodoviários" },
+      { name: "description", content: "Pavel: venda de implementos rodoviários, peças, assistência técnica e seminovos para veículos a diesel no Maranhão, Pará e Amazonas." },
+      { name: "theme-color", content: "#080912" },
+      { property: "og:title", content: "Pavel Implementos Rodoviários" },
+      { property: "og:description", content: "Implementos rodoviários, peças, oficina e seminovos para grandes operações no Norte e Nordeste." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:site_name", content: "Pavel Implementos Rodoviários" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" },
+    ],
+    scripts: [
       {
-        rel: "stylesheet",
-        href: appCss,
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Pavel Implementos Rodoviários",
+          url: "/",
+          email: "contato@grupopavel.com.br",
+          telephone: "+55-98-3878-3200",
+          areaServed: ["MA", "PA", "AM", "BR-N", "BR-NE"],
+          address: [
+            { "@type": "PostalAddress", addressLocality: "São Luís", addressRegion: "MA", addressCountry: "BR" },
+            { "@type": "PostalAddress", addressLocality: "Imperatriz", addressRegion: "MA", addressCountry: "BR" },
+            { "@type": "PostalAddress", addressLocality: "Belém", addressRegion: "PA", addressCountry: "BR" },
+            { "@type": "PostalAddress", addressLocality: "Manaus", addressRegion: "AM", addressCountry: "BR" },
+          ],
+        }),
       },
     ],
   }),
@@ -96,11 +123,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="bg-industrial text-ice">
         {children}
         <Scripts />
       </body>
@@ -110,10 +137,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <SiteHeader />
+      <main className="min-h-screen">
+        <Outlet />
+      </main>
+      <SiteFooter />
     </QueryClientProvider>
   );
 }
