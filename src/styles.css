@@ -46,28 +46,28 @@
   --radius: 0.25rem;
 
   /* Brand */
-  --industrial: oklch(0.085 0.015 275);   /* #080912 */
-  --navy: oklch(0.255 0.085 281);          /* #292752 */
-  --rust: oklch(0.532 0.122 37);           /* #a14a3f */
-  --ice: oklch(0.975 0.005 250);           /* #f0f4f8 */
-  --steel: oklch(0.58 0.012 270);          /* steel grey */
+  --industrial: oklch(0.10 0.02 280);      /* #0c0b1a - Very dark navy industrial background */
+  --navy: oklch(0.24 0.07 280);            /* #23214C - Deep Navy from logo text */
+  --rust: oklch(0.395 0.125 32.5);         /* #8F3D32 - Rust Red from logo symbol */
+  --ice: oklch(0.97 0.01 280);             /* Cool ice white tinted with brand navy */
+  --steel: oklch(0.60 0.03 280);           /* Slate steel blue */
 
   /* Semantic — dark immersive theme */
   --background: var(--industrial);
   --foreground: var(--ice);
-  --card: oklch(0.12 0.02 275);
+  --card: oklch(0.13 0.03 280);
   --card-foreground: var(--ice);
-  --popover: oklch(0.12 0.02 275);
+  --popover: oklch(0.13 0.03 280);
   --popover-foreground: var(--ice);
   --primary: var(--rust);
   --primary-foreground: var(--ice);
   --secondary: var(--navy);
   --secondary-foreground: var(--ice);
-  --muted: oklch(0.18 0.02 275);
+  --muted: oklch(0.17 0.03 280);
   --muted-foreground: var(--steel);
   --accent: var(--rust);
   --accent-foreground: var(--ice);
-  --destructive: oklch(0.6 0.22 27);
+  --destructive: oklch(0.55 0.18 28);
   --destructive-foreground: var(--ice);
   --border: oklch(1 0 0 / 8%);
   --input: oklch(1 0 0 / 10%);
@@ -75,17 +75,17 @@
 
   /* Industrial gradients & glows */
   --gradient-industrial: linear-gradient(180deg,
-    oklch(0.06 0.015 275) 0%,
-    oklch(0.10 0.025 280) 100%);
+    oklch(0.08 0.02 280) 0%,
+    oklch(0.12 0.03 280) 100%);
   --gradient-rust: linear-gradient(135deg,
-    oklch(0.55 0.135 38) 0%,
-    oklch(0.42 0.10 32) 100%);
+    oklch(0.44 0.13 32.5) 0%,
+    oklch(0.34 0.11 30) 100%);
   --gradient-navy: linear-gradient(135deg,
-    oklch(0.30 0.09 281) 0%,
-    oklch(0.18 0.06 280) 100%);
+    oklch(0.26 0.08 281) 0%,
+    oklch(0.16 0.05 280) 100%);
   --shadow-metal: 0 30px 60px -20px oklch(0 0 0 / 0.7),
     0 1px 0 oklch(1 0 0 / 0.04) inset;
-  --glow-rust: 0 0 60px -10px oklch(0.55 0.13 38 / 0.55);
+  --glow-rust: 0 0 60px -10px oklch(0.395 0.125 32.5 / 0.55);
 }
 
 @layer base {
@@ -132,7 +132,7 @@
     box-shadow: var(--glow-rust);
   }
   .glass {
-    background-color: oklch(0.085 0.015 275 / 0.72);
+    background-color: oklch(0.10 0.02 280 / 0.72);
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
     border-bottom: 1px solid oklch(1 0 0 / 0.06);
